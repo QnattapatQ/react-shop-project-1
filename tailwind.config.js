@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        fixedHeader: {
+          '100%' : { transform: 'translateY(50%)' }
+        }
+      },
+    },
   },
   plugins: [],
 }

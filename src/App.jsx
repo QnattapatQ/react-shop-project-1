@@ -37,7 +37,7 @@ function App() {
     return (
         <MobileMenuShow.Provider value={mobileSize}>
             <SizeWidth.Provider value={desktopSize.winWidth}>
-                <div className=''>
+                <div className='pb-[3000px]'>
                   <Home_Page/>
                 </div>
             </SizeWidth.Provider>

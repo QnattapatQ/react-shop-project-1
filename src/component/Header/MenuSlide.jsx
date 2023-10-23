@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AiOutlineClose } from 'react-icons/Ai';
 import { SizeWidth } from '../../App';
 import { useContext } from 'react';
@@ -29,9 +29,11 @@ export const MenuSlide = ({ toggleOpen, setToggleOpen }) => {
 
     const widthDetail = useContext(SizeWidth);
 
-    if(widthDetail > 1024) {
-        setToggleOpen(false)
-    }
+    useEffect(() => {
+        if(widthDetail > 1024) {
+            setToggleOpen(false)
+        }
+    }, [widthDetail]);
 
     return (
         <div className={`${toggleOpen && widthDetail <= 1024 ? 'translate-x-[0] visible opacity-100' : 'translate-x-[100%] opacity-0 invisible'} fixed inset-0 duration-300 bg-gray-100`}>
