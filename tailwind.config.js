@@ -7,10 +7,17 @@ export default {
   theme: {
     extend: {
       keyframes: {
-        fixedHeader: {
-          '100%' : { transform: 'translateY(50%)' }
+        stickyHeader: {
+          '0%' : { transform: 'translateY(-100%)' },
+          '100%' : { transform: 'translateY(0)' }
         }
       },
+      animation: {
+        'headerFixed': 'stickyHeader 500ms ease 0s'
+      },
+      colors: {
+        'main-pink': '#faedeb'
+      }
     },
   },
   plugins: [],
