@@ -8,11 +8,11 @@ export const HeroSection = () => {
                 <div className='flex h-full'>
                     <div className='basis-6/12 bg-red-400 h-full flex items-center'>
                         <div>
-                            <div>
+                            <div className='mb-[10px]'>
                                 <h6 className='uppercase font-normal text-[rgba(0,0,0,0.6)]'>Women</h6>
                             </div>
-                            <div className='mb-5'>
-                                <h1>Slick. Modern. <br/> Awesome.</h1>
+                            <div className='mb-10'>
+                                <h1 className='text-[3.5rem] font-semibold leading-[1em]'>Slick. Modern. <br/> Awesome.</h1>
                             </div>
                             <div>
                                 <a className='bg-black text-white text-sm py-3 px-5' href="#">Shop Collection</a>
