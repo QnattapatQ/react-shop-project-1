@@ -16,6 +16,8 @@ function App() {
 
     const [productSelect, setProductSelect] = useState(null);
 
+    console.log(productSelect)
+
     const detechSize = () => {
         setDesktopSize({
             winWidth: window.innerWidth
@@ -38,13 +40,15 @@ function App() {
     },[desktopSize]);
 
     return (
-        <MobileMenuShow.Provider value={mobileSize}>
-            <SizeWidth.Provider value={desktopSize.winWidth}>
-                <div className='pb-[3000px]'>
-                  <Home_Page/>
-                </div>
-            </SizeWidth.Provider>
-        </MobileMenuShow.Provider>
+        <ProductSelect.Provider value={{productSelect, setProductSelect}}>
+            <MobileMenuShow.Provider value={mobileSize}>
+                <SizeWidth.Provider value={desktopSize.winWidth}>
+                    <div className='pb-[3000px]'>
+                        <Home_Page/>
+                    </div>
+                </SizeWidth.Provider>
+            </MobileMenuShow.Provider>
+        </ProductSelect.Provider>
     )
 }
 
