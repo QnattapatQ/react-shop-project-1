@@ -17,8 +17,11 @@ export default {
       },
       colors: {
         'main-pink': '#faedeb'
-      }
+      },
     },
+  },
+  daisyui: {
+    themes: ["lofi", "dark", "cupcake"],
   },
   plugins: [require("daisyui")],
 }

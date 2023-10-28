@@ -5,7 +5,7 @@ import { AiOutlineSearch } from 'react-icons/Ai';
 
 export const SearchSection = ({ openSearch, setOpenSearch }) => {
     return (
-        <div className={`${openSearch ? 'opacity-100 visible' : 'opacity-0 invisible'} fixed inset-0 bg-[rgba(0,0,0,0.85)] duration-200`}>
+        <div className={`${openSearch ? 'opacity-100 visible' : 'opacity-0 invisible'} z-[100] fixed inset-0 bg-[rgba(0,0,0,0.85)] duration-200`}>
             <div className='absolute right-10 top-10'>
                 <button className='flex justify-center items-center text-white'><AiOutlineClose onClick={() => {setOpenSearch(!openSearch)}} className='text-[2rem]'/></button> 
             </div>

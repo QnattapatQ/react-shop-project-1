@@ -36,7 +36,7 @@ export const MenuSlide = ({ toggleOpen, setToggleOpen }) => {
     }, [widthDetail]);
 
     return (
-        <div className={`${toggleOpen && widthDetail <= 1024 ? 'translate-x-[0] visible opacity-100' : 'translate-x-[100%] opacity-0 invisible'} fixed inset-0 duration-300 bg-gray-100`}>
+        <div className={`${toggleOpen && widthDetail <= 1024 ? 'translate-x-[0] visible opacity-100' : 'translate-x-[100%] opacity-0 invisible'} z-40 fixed inset-0 duration-300 bg-gray-100`}>
             <div className='absolute right-5 top-5'>
                 <button className='flex justify-center items-center'><AiOutlineClose onClick={() => {setToggleOpen(!toggleOpen)}} className='text-[1.5rem]'/></button>
             </div>
