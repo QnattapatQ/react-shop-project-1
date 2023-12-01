@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/Ai';
 import { SizeWidth } from '../../App';
 import { useContext } from 'react';
@@ -27,7 +27,35 @@ export const MenuSlide = ({ toggleOpen, setToggleOpen }) => {
         boderStyles: false,
     },];
 
+    const [mobileSize, setMobileSize] = useState(false);
+
     const widthDetail = useContext(SizeWidth);
+
+    const [desktopSize, setDesktopSize] = useState({
+        winWidth: window.innerWidth
+    })
+
+    const detechSize = () => {
+        setDesktopSize({
+            winWidth: window.innerWidth
+        })
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', detechSize);
+
+
+        if(desktopSize.winWidth <= 1024){
+            setMobileSize(true);
+        } else {
+            setMobileSize(false);
+        }
+
+        return () => {
+            window.removeEventListener('resize', detechSize);
+        }
+
+    },[desktopSize]);
 
     useEffect(() => {
         if(widthDetail > 1024) {
@@ -36,7 +64,7 @@ export const MenuSlide = ({ toggleOpen, setToggleOpen }) => {
     }, [widthDetail]);
 
     return (
-        <div className={`${toggleOpen && widthDetail <= 1024 ? 'translate-x-[0] visible opacity-100' : 'translate-x-[100%] opacity-0 invisible'} z-40 fixed inset-0 duration-300 bg-gray-100`}>
+        <div className={`${toggleOpen && desktopSize.winWidth <= 1024 ? 'translate-x-[0] visible opacity-100' : 'translate-x-[100%] opacity-0 invisible'} z-40 fixed inset-0 duration-300 bg-gray-100`}>
             <div className='absolute right-5 top-5'>
                 <button className='flex justify-center items-center'><AiOutlineClose onClick={() => {setToggleOpen(!toggleOpen)}} className='text-[1.5rem]'/></button>
             </div>

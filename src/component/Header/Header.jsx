@@ -3,30 +3,31 @@ import ResponsiveSize from '../../../public/ResonsiveSize';
 import FlexCenterBetween, { FlexCenter } from '../../../public/Flex';
 import { AiOutlineSearch, AiOutlineShoppingCart } from 'react-icons/Ai';
 import { GiHamburgerMenu } from 'react-icons/Gi';
-import { MobileMenuShow } from '../../App';
+// import { MobileMenuShow } from '../../App';
 import { MenuSlide } from './MenuSlide';
 import { SearchSection } from './SearchSection';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
     const menuLists = [{
         menuName: 'Buy T-Shirts',
-        href: '#'
+        href: '/shop'
     },{
         menuName: 'Women',
-        href: '#'
+        href: '/women'
     },{
         menuName: 'Men',
-        href: '#'
+        href: '/men'
     },{
         menuName: 'About',
-        href: '#'
+        href: '/about'
     },{
         menuName: 'Contact',
-        href: '#'
+        href: '/contact'
     },];
 
-    const mobileResponse = useContext(MobileMenuShow);
+    // const mobileResponse = useContext(MobileMenuShow);
 
     const [toggleOpen, setToggleOpen] = useState(false);
 
@@ -43,6 +44,36 @@ const Header = () => {
             scrollDetail: window.scrollY
         });
     }
+
+    const [mobileSize, setMobileSize] = useState(false);
+
+    const [desktopSize, setDesktopSize] = useState({
+        winWidth: window.innerWidth
+    })
+
+    const detechSize = () => {
+        setDesktopSize({
+            winWidth: window.innerWidth
+        })
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', detechSize);
+
+
+        if(desktopSize.winWidth <= 1024){
+            setMobileSize(true);
+            console.log(mobileSize)
+        } else {
+            setMobileSize(false);
+            console.log(mobileSize)
+        }
+
+        return () => {
+            window.removeEventListener('resize', detechSize);
+        }
+
+    },[desktopSize]);
 
     useEffect(() => {
         window.addEventListener('scroll', resetScroll);
@@ -62,11 +93,11 @@ const Header = () => {
                         <FlexCenterBetween>
                             <div className='flex justify-between items-center basis-[65%]'>
                                 <div className='max-sm:w-24'>
-                                    <a href="#">
+                                    <Link to="/">
                                         <img src="https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/logo-regular.png" alt="" />
-                                    </a>
+                                    </Link>
                                 </div>
-                                <div className={`${mobileResponse ? 'hidden' : 'block'}`}>
+                                <div className={`${mobileSize ? 'hidden' : 'block'}`}>
                                     <ul className='flex gap-[1em]'>
                                         {menuLists.map((menu, index) => (
                                             <li className='relative py-2 duration-200' key={index}>
@@ -86,8 +117,8 @@ const Header = () => {
                                     <FlexCenter className='absolute bg-black text-white w-4 h-4 rounded-full text-[12px] font-semibold top-[-8px] right-[-8px] p-2'>0</FlexCenter>
                                 </div>
                                 <div>
-                                    <a className={`${mobileResponse ? 'hidden' : 'block'} bg-black text-white p-2 border border-white rounded-md font-medium duration-200 hover:bg-white hover:text-black hover:border-black`} href="#">Login</a>
-                                    <GiHamburgerMenu onClick={() => {setToggleOpen(!toggleOpen)}} className={`${mobileResponse ? 'block' : 'hidden'} text-black text-[1.5rem] cursor-pointer`}/>
+                                    <a className={`${mobileSize ? 'hidden' : 'block'} bg-black text-white p-2 border border-white rounded-md font-medium duration-200 hover:bg-white hover:text-black hover:border-black`} href="#">Login</a>
+                                    <GiHamburgerMenu onClick={() => {setToggleOpen(!toggleOpen)}} className={`${mobileSize ? 'block' : 'hidden'} text-black text-[1.5rem] cursor-pointer`}/>
                                 </div>
                             </FlexCenter>
                         </FlexCenterBetween>

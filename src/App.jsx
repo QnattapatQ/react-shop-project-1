@@ -4,19 +4,14 @@ import Home_Page from './component/All_Pages/Home_Page'
 
 export const SizeWidth = createContext();
 export const MobileMenuShow = createContext();
-export const ProductSelect = createContext();
 
 function App() {
 
-    const [mobileSize, setMobileSize] = useState(false);
+    /*const [mobileSize, setMobileSize] = useState(false);
 
     const [desktopSize, setDesktopSize] = useState({
         winWidth: window.innerWidth
     })
-
-    const [productSelect, setProductSelect] = useState(null);
-
-    console.log(productSelect)
 
     const detechSize = () => {
         setDesktopSize({
@@ -27,28 +22,30 @@ function App() {
     useEffect(() => {
         window.addEventListener('resize', detechSize);
 
+
         if(desktopSize.winWidth <= 1024){
             setMobileSize(true);
+            console.log(mobileSize)
         } else {
             setMobileSize(false);
+            console.log(mobileSize)
         }
 
         return () => {
             window.removeEventListener('resize', detechSize);
         }
 
-    },[desktopSize]);
+    },[desktopSize]); */
+
 
     return (
-        <ProductSelect.Provider value={{productSelect, setProductSelect}}>
-            <MobileMenuShow.Provider value={mobileSize}>
-                <SizeWidth.Provider value={desktopSize.winWidth}>
-                    <div className='pb-[3000px]'>
-                        <Home_Page/>
-                    </div>
-                </SizeWidth.Provider>
-            </MobileMenuShow.Provider>
-        </ProductSelect.Provider>
+        <MobileMenuShow.Provider value={mobileSize}>
+            <SizeWidth.Provider value={desktopSize.winWidth}>
+                <div>
+                    <Home_Page/>
+                </div>
+            </SizeWidth.Provider>
+        </MobileMenuShow.Provider>
     )
 }
 
