@@ -3,8 +3,10 @@ import Header from '../Header/Header'
 import { HeroSection } from '../HeroSection/HeroSection'
 import MenModel from '../MenModel/MenModel'
 import PopularProduct from '../PopularProduct/PopularProduct'
-import { useState, useEffect, useContext } from 'react'
 import WomenPreview from '../WomenPreview/WomenPreview'
+import { SummerProductSection } from '../SummerProduct/SummerProductSection.jsx'
+import { CommentSection } from '../CommentSection/CommentSection.jsx'
+import { CategorySection } from '../CategorySection/CategorySection.jsx'
 
 const Home_Page = () => {
 
@@ -16,6 +18,9 @@ const Home_Page = () => {
             <MenModel/>
             <BgAttach/>
             <WomenPreview/>
+            <SummerProductSection/>
+            <CommentSection/>
+            <CategorySection/>
         </div>
     )
 }

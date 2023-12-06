@@ -63,10 +63,8 @@ const Header = () => {
 
         if(desktopSize.winWidth <= 1024){
             setMobileSize(true);
-            console.log(mobileSize)
         } else {
             setMobileSize(false);
-            console.log(mobileSize)
         }
 
         return () => {

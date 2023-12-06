@@ -12,13 +12,6 @@ export const ProductList = () => {
     // const {productSelect, setProductSelect} = useContext(ProductSelect);
 
     const [saveProduct, setSaveProduct] = useState([]);
-
-    useEffect(() => {
-        console.log(saveProduct);
-    }, [saveProduct]);
-
-
-    
     
     return (
             <div className='grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-7 mb-10'>

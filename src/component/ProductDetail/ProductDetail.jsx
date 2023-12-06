@@ -3,12 +3,11 @@ import { useParams } from 'react-router-dom'
 import Header from '../Header/Header';
 import { ProductContext } from '../ProductProvider/ProductProvider';
 import popularProduct from '../PopularProduct/product';
+import summerProduct from '../SummerProduct/SummerProduct';
 
 const ProductDetail = () => {
 
     const [saveProduct, setSaveProduct] = useState([]);
-    const [saveID, setSaveID] = useState('');
-    const [productID, setProductID] = useState('');
 
 
     const { id } = useParams();
@@ -25,6 +24,16 @@ const ProductDetail = () => {
         });
             setSaveProduct(productOnPage)
             localStorage.setItem('product', JSON.stringify(productOnPage));
+
+    }, []);
+
+    useEffect(() => {
+
+        const summerProductOnPage = summerProduct.filter((data) => {     
+            return data.id === id;
+        });
+            setSaveProduct(summerProductOnPage)
+            localStorage.setItem('product', JSON.stringify(summerProductOnPage));
 
     }, []);
 
