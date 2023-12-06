@@ -88,7 +88,7 @@ const Header = () => {
 
     return (
         <>
-            <div className={`${fixedHeader ? 'fixed left-0 w-full right-0 animate-headerFixed' : ''} z-50 duration-300 border px-8 py-4 bg-white`}>
+            <div className={`${fixedHeader ? 'fixed left-0 w-full right-0 animate-headerFixed' : ''} z-40 duration-300 border px-8 py-4 bg-white`}>
                     <ResponsiveSize className=''>
                         <FlexCenterBetween>
                             <div className='flex justify-between items-center basis-[65%]'>
