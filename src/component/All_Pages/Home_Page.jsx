@@ -7,6 +7,7 @@ import WomenPreview from '../WomenPreview/WomenPreview'
 import { SummerProductSection } from '../SummerProduct/SummerProductSection.jsx'
 import { CommentSection } from '../CommentSection/CommentSection.jsx'
 import { CategorySection } from '../CategorySection/CategorySection.jsx'
+import { FooterSection } from '../FooterSection/FooterSection.jsx'
 
 const Home_Page = () => {
 
@@ -21,6 +22,7 @@ const Home_Page = () => {
             <SummerProductSection/>
             <CommentSection/>
             <CategorySection/>
+            <FooterSection/>
         </div>
     )
 }
