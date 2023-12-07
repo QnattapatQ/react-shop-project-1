@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import { ProductContext } from '../ProductProvider/ProductProvider';
 import popularProduct from '../PopularProduct/product';
 import summerProduct from '../SummerProduct/SummerProduct';
+import menProduct from '../MenProduct/MenProduct.js';
 
 const ProductDetail = () => {
 
@@ -34,6 +35,16 @@ const ProductDetail = () => {
         });
             setSaveProduct(summerProductOnPage)
             localStorage.setItem('product', JSON.stringify(summerProductOnPage));
+
+    }, []);
+
+    useEffect(() => {
+
+        const menProductOnPage = menProduct.filter((data) => {     
+            return data.id === id;
+        });
+            setSaveProduct(menProductOnPage)
+            localStorage.setItem('product', JSON.stringify(menProductOnPage));
 
     }, []);
 

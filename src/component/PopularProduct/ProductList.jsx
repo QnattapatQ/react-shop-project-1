@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { useState } from 'react'
 import popularProduct from './product'
 import { BsFillEyeFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
