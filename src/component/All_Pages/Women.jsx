@@ -1,8 +1,15 @@
 import React from 'react'
+import WomenProduct from '../WomenProduct/WomenProduct.jsx'
+import Header from '../Header/Header'
+import { FooterSection } from '../FooterSection/FooterSection'
 
 const Women = () => {
     return (
-        <div>Women</div>
+        <div>
+            <Header/>
+            <WomenProduct/>
+            <FooterSection/>
+        </div>
     )
 }
 

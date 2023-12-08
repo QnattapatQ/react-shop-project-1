@@ -2,11 +2,11 @@ import React from 'react';
 import ResponsiveSize from '../../../public/ResonsiveSize';
 import { Link } from 'react-router-dom';
 import SmallText from '../../../public/HeaderText';
-import menProduct from './MenProduct.js';
+import womenProduct from './womenProduct.js';
 import { BsFillEyeFill } from 'react-icons/bs';
 import { FaShoppingCart } from 'react-icons/fa';
 
-const MenProduct = () => {
+const WomenProduct = () => {
     return (
         <div className='px-8 pt-12'>
             <ResponsiveSize>
@@ -14,10 +14,10 @@ const MenProduct = () => {
                     <div className="text-sm breadcrumbs">
                         <ul>
                             <li><Link to="/">Home</Link></li> 
-                            <li><Link to="/men">Men</Link></li> 
+                            <li><Link to="/women">Women</Link></li> 
                         </ul>
                     </div>
-                    <h1 className='text-[55px] font-normal'>Men</h1>
+                    <h1 className='text-[55px] font-normal'>Women</h1>
                     <div>
                         <div className='flex w-full items-center justify-between'>
                             <SmallText>Show all 5 results</SmallText>
@@ -32,7 +32,7 @@ const MenProduct = () => {
                             </div>
                         </div>
                         <div className='grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-7 mb-10 mt-10'>
-                            {menProduct.map((data, index) => (
+                            {womenProduct.map((data, index) => (
                                 <div className='relative overflow-hidden group/img group/option' onClick={() => {setSaveProduct(data)}} key={index}>
                                     <div className='relative' onClick={() => {setSaveProduct(data)}}>
                                         <Link to={`/product/${data.id}`} onClick={() => {setSaveProduct(data)}}><img className='w-full duration-500 group-hover/img:opacity-0' src={data.productTeaser} alt="" /></Link>
@@ -79,4 +79,4 @@ const MenProduct = () => {
     )
 }
 
-export default MenProduct
+export default WomenProduct
