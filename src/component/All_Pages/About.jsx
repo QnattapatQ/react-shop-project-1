@@ -27,19 +27,30 @@ const About = () => {
                     </div>
                 </ResponsiveSize>
             </div>
-            <div className='relative w-full h-[742px] max-lg:h-[654px] max-lg:bg-local bg-fixed bg-cover bg-center bg-no-repeat bg-[url(https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/bg-01.jpg)]'>
+            <div className='relative w-full p-[7%] my-12 max-lg:bg-local bg-fixed bg-cover bg-center bg-no-repeat bg-[url(https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/bg-02.jpg)]'>
+                <div className='absolute bg-[rgba(0,0,0,0.4)] inset-0'></div>
                 <div className='flex items-center justify-center h-full'>
-                    <div className='flex gap-6'>
-                        <div className='flex flex-col basis-1/2'>
-                            <p>THE MISSION</p>
-                            <h2>At the heart of everything, we set out to offer the best quality.</h2>
-                        </div>
-                        <div className='flex flex-col basis-1/2'>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu ante vel mauris molestie dignissim non 
-                                eget nunc. Integer ac massa orci. Suspendisse vulputate semper nunc eget rhoncus. Aenean placerat 
-                                facilisis ex, eu laoreet lorem convallis.
-                            </p>
-                        </div>
+                    <div className='z-10'>
+                        <ResponsiveSize>
+                            <div className='flex gap-6 z-10 max-lg:flex-col scroll-px-48'>
+                                <div className='flex justify-center flex-col basis-1/2 max-lg:basis-full '>
+                                    <p className='text-white mb-2'>THE MISSION</p>
+                                    <h2 className='text-white text-4xl font-semibold pr-[20%] mb-5 max-md:text-3xl'>At the heart of <br/> everything, we set out to offer the best quality.</h2>
+                                    <span className='w-[50px] h-[2px] bg-white'></span>
+                                </div>
+                                <div className='flex flex-col basis-1/2 max-lg:basis-full'>
+                                    <p className='text-white text-xl font-semibold max-sm:text-lg'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu ante vel mauris molestie dignissim non 
+                                        eget nunc. Integer ac massa orci. Suspendisse vulputate semper nunc eget rhoncus. Aenean placerat 
+                                        facilisis ex, eu laoreet lorem convallis.
+                                    </p>
+
+                                    <p className='text-white text-xl font-semibold mt-5 max-sm:text-lg'>Fusce gravida justo a lectus tempus lacinia. Ut mollis 
+                                    scelerisque ultricies. Aenean facilisis efficitur magna, at feugiat massa bibendum at.
+                                    Etiam ut venenatis urna.
+                                    </p>
+                                </div>
+                            </div>
+                        </ResponsiveSize>
                     </div>
                 </div>
             </div>
