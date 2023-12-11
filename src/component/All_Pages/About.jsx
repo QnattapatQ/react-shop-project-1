@@ -54,6 +54,35 @@ const About = () => {
                     </div>
                 </div>
             </div>
+            <ResponsiveSize>
+                <div className='mb-36'>
+                    <div className='flex items-center justify-center flex-col max-w-[740px] w-full mx-auto pt-7'>
+                        <div className='relative text-center inline-block'>
+                            <h1 className='text-[36px] font-semibold max-sm:text-4xl'>How it Started</h1>
+                            <span className='absolute w-14 h-[2px] bg-black bottom-0 right-2/4 translate-x-2/4'></span>
+                        </div>
+                        <div className='text-center mt-5'>
+                            <p className='text-gray-500 mb-7'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, 
+                            luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            </p>
+                        </div>
+                    </div>
+                    <div className='flex max-lg:flex-col'>
+                        <div className='basis-1/2 p-[75px] bg-main-pink max-lg:basis-full'>
+                            <h1 className='text-[36px] font-semibold max-sm:text-4xl mb-5'>Vel mauris molestie dignissim</h1>
+                            <p className='mb-5 font-semibold'>Proin eu ante vel mauris molestie dignissim non eget nunc. Integer ac massa orci. Suspendisse vulputate semper nunc eget rhoncus.</p>
+                            <p className='text-sm'>Praesent vel faucibus ligula. Sed sit amet ipsum eget velit aliquet faucibus. Maecenas et odio 
+                                id turpis sollicitudin pulvinar sit amet vitae augue. Phasellus nec ultricies arcu. Quisque 
+                                efficitur tellus sit amet bibendum molestie. Duis id egestas odio. Phasellus lacinia ex quis 
+                                faucibus tempor. Sed feugia.
+                            </p>
+                        </div>
+                        <div className='basis-1/2 bg-[url(https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/about-01.jpg)] bg-cover bg-center bg-no-repeat max-lg:basis-full'>
+                            
+                        </div>
+                    </div>
+                </div>
+            </ResponsiveSize>
             <FooterSection/>
         </div>
     )
