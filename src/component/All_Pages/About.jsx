@@ -35,16 +35,16 @@ const About = () => {
                             <div className='flex gap-6 z-10 max-lg:flex-col scroll-px-48'>
                                 <div className='flex justify-center flex-col basis-1/2 max-lg:basis-full '>
                                     <p className='text-white mb-2'>THE MISSION</p>
-                                    <h2 className='text-white text-4xl font-semibold pr-[20%] mb-5 max-md:text-3xl'>At the heart of <br/> everything, we set out to offer the best quality.</h2>
+                                    <h2 className='text-white text-4xl font-semibold pr-[20%] mb-5 max-md:text-3xl max-sm:text-xl'>At the heart of <br/> everything, we set out to offer the best quality.</h2>
                                     <span className='w-[50px] h-[2px] bg-white'></span>
                                 </div>
                                 <div className='flex flex-col basis-1/2 max-lg:basis-full'>
-                                    <p className='text-white text-xl font-semibold max-sm:text-lg'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu ante vel mauris molestie dignissim non 
+                                    <p className='text-white text-xl font-semibold max-sm:text-[16px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu ante vel mauris molestie dignissim non 
                                         eget nunc. Integer ac massa orci. Suspendisse vulputate semper nunc eget rhoncus. Aenean placerat 
                                         facilisis ex, eu laoreet lorem convallis.
                                     </p>
 
-                                    <p className='text-white text-xl font-semibold mt-5 max-sm:text-lg'>Fusce gravida justo a lectus tempus lacinia. Ut mollis 
+                                    <p className='text-white text-xl font-semibold mt-5 max-sm:text-[16px]'>Fusce gravida justo a lectus tempus lacinia. Ut mollis 
                                     scelerisque ultricies. Aenean facilisis efficitur magna, at feugiat massa bibendum at.
                                     Etiam ut venenatis urna.
                                     </p>
@@ -55,7 +55,7 @@ const About = () => {
                 </div>
             </div>
             <ResponsiveSize>
-                <div className='mb-36'>
+                <div className='mb-36 px-8'>
                     <div className='flex items-center justify-center flex-col max-w-[740px] w-full mx-auto pt-7'>
                         <div className='relative text-center inline-block'>
                             <h1 className='text-[36px] font-semibold max-sm:text-4xl'>How it Started</h1>
@@ -67,17 +67,17 @@ const About = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex max-lg:flex-col'>
-                        <div className='basis-1/2 p-[75px] bg-main-pink max-lg:basis-full'>
-                            <h1 className='text-[36px] font-semibold max-sm:text-4xl mb-5'>Vel mauris molestie dignissim</h1>
-                            <p className='mb-5 font-semibold'>Proin eu ante vel mauris molestie dignissim non eget nunc. Integer ac massa orci. Suspendisse vulputate semper nunc eget rhoncus.</p>
-                            <p className='text-sm'>Praesent vel faucibus ligula. Sed sit amet ipsum eget velit aliquet faucibus. Maecenas et odio 
+                    <div className='flex max-lg:flex-col w-full overflow-hidden'>
+                        <div className='basis-1/2 p-[75px] bg-main-pink max-sm:p-[30px] max-lg:basis-full'>
+                            <h1 className='text-[36px] font-semibold max-sm:text-2xl mb-5'>Vel mauris molestie dignissim</h1>
+                            <p className='mb-5 font-semibold max-sm:text-[14px]'>Proin eu ante vel mauris molestie dignissim non eget nunc. Integer ac massa orci. Suspendisse vulputate semper nunc eget rhoncus.</p>
+                            <p className='text-sm max-sm:text-[12px]'>Praesent vel faucibus ligula. Sed sit amet ipsum eget velit aliquet faucibus. Maecenas et odio 
                                 id turpis sollicitudin pulvinar sit amet vitae augue. Phasellus nec ultricies arcu. Quisque 
                                 efficitur tellus sit amet bibendum molestie. Duis id egestas odio. Phasellus lacinia ex quis 
                                 faucibus tempor. Sed feugia.
                             </p>
                         </div>
-                        <div className='basis-1/2 bg-[url(https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/about-01.jpg)] bg-cover bg-center bg-no-repeat max-lg:basis-full'>
+                        <div className='basis-1/2 bg-[url(https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/about-01.jpg)] bg-cover bg-center bg-no-repeat max-lg:p-56'>
                             
                         </div>
                     </div>
