@@ -34,7 +34,16 @@ const Contact = () => {
                             <p className='underline flex items-center gap-1'><FaPhoneAlt/>9-334-7565-9787</p>
                         </div>
                     </div>
-                    <div className='basis-1/2 bg-green-500'></div>
+                    <div className='basis-1/2 bg-green-500'>
+                        <div className='p-12 bg-red-500 flex flex-col gap-5 absolute'>
+                            <div className='w-full flex gap-5'>
+                                <input className='w-full p-[0.75em] border inline-block placeholder:text-sm' type="text" placeholder='First Name'/>
+                                <input className='w-full p-[0.75em] border inline-block placeholder:text-sm' type="text" placeholder='Last Name'/>
+                            </div>
+                            <input className='w-full p-[0.75em] border placeholder:text-sm' placeholder='Your Email Address...'/>
+                            <textarea className='resize-none p-[0.75em] border placeholder:text-sm' placeholder='Message...' rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
             <FooterSection/>
