@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Header from '../Header/Header';
 import allProducts from '../AllProducts/allProduct.js';
 import { FooterSection } from '../FooterSection/FooterSection.jsx';
 import ResponsiveSize from '../../../public/ResonsiveSize.jsx';
 import { BoldText } from '../../../public/HeaderText.jsx';
+import { BtnQuantity } from '../BtnQuantity/BtnQuantity.jsx';
 
 const ProductDetail = () => {
 
@@ -54,14 +55,21 @@ const ProductDetail = () => {
                                     <p className='font-semibold text-xl'>{data.price} <span className='font-normal text-sm'>& Free Shipping</span></p>
                                     <p className='text-sm'>{data.desc}</p>
                                 </div>
-                                <div className='mt-3'>
+                                <div className='mt-3 mb-8'>
                                     <p>Color</p>
                                     <div className="btn-group mt-3 flex gap-2 text-center">
-                                        <input type="radio" name="options" data-title="Black" className="btn border text-center text-sm capitalize" value="Black"/>
-                                        <input type="radio" name="options" data-title="Pink" className="btn border text-center text-sm capitalize" value="Pink"/>
-                                        <input type="radio" name="options" data-title="White" className="btn border text-center text-sm capitalize" value="White"/>
+                                       <button className='border px-4 py-2 text-sm'>Black</button>
+                                       <button className='border px-4 py-2 text-sm'>White</button>
+                                       <button className='border px-4 py-2 text-sm'>Pink</button>
                                     </div>
-                                </div>    
+                                </div>
+                                <hr/>
+                                <BtnQuantity/>
+                                <hr/>
+                                <div className='flex'>
+                                    <p>SKU: N/A</p>
+                                    <Link className='capitalize' to={data.gender === 'WOMEN' ? '/women' : '/men'}>{data.gender}</Link>
+                                </div>   
                             </div>         
                         </div>
                     ))}
