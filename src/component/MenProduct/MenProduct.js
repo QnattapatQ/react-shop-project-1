@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const menProduct = [
     {
-        id: uuidv4(),
+        id: 't-shirt-name-10',
         productTeaser: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-09-a-400x488.jpg',
         realProduct: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-01-c-400x488.jpg',
         gender: 'MEN',
@@ -13,7 +13,7 @@ const menProduct = [
         highPrice: 38.00,
         discount: false
     },{
-        id: uuidv4(),
+        id: 't-shirt-name-2',
         productTeaser: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-02-a-400x488.jpg',
         realProduct: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-01-d-400x488.jpg',
         gender: 'MEN',
@@ -24,7 +24,7 @@ const menProduct = [
         highPrice: 27.00,
         discount: false
     },{
-        id: uuidv4(),
+        id: 't-shirt-name-4',
         productTeaser: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-05-a-400x488.jpg',
         realProduct: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-001-b-400x488.jpg',
         gender: 'MEN',
@@ -38,7 +38,7 @@ const menProduct = [
             price: '-14%'
         }
     },{
-        id: uuidv4(),
+        id: 't-shirt-name-6',
         productTeaser: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-03-a-400x488.jpg',
         realProduct: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-01-d-400x488.jpg',
         gender: 'MEN',
@@ -52,7 +52,7 @@ const menProduct = [
             price: '-20%'
         }
     },{
-        id: uuidv4(),
+        id: 't-shirt-name-8',
         productTeaser: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-10-a-400x488.jpg',
         realProduct: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-01-d-400x488.jpg',
         gender: 'MEN',
