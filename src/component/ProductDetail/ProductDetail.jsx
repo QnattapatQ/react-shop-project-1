@@ -6,17 +6,14 @@ import { FooterSection } from '../FooterSection/FooterSection.jsx';
 import ResponsiveSize from '../../../public/ResonsiveSize.jsx';
 import { BoldText } from '../../../public/HeaderText.jsx';
 import { BtnQuantity } from '../BtnQuantity/BtnQuantity.jsx';
+import { DescriptionProduct } from '../DescriptionProduct/DescriptionProduct.jsx';
+import { FaPlus } from "react-icons/fa";
 
 const ProductDetail = () => {
 
     const { id } = useParams();
 
     const [saveProduct, setSaveProduct] = useState(allProducts);
-
-    // useEffect(() => {
-    //     const productLocal = JSON.parse(localStorage.getItem('product')) || [];
-    //     if (productLocal) setSaveProduct(productLocal);
-    // }, []);
 
     useEffect(() => {
         setSaveProduct(allProducts.filter((data) => {
@@ -53,10 +50,10 @@ const ProductDetail = () => {
                                     <p>{data.gender}</p>
                                     <BoldText>{data.productName}</BoldText>
                                     <p className='font-semibold text-xl'>{data.price} <span className='font-normal text-sm'>& Free Shipping</span></p>
-                                    <p className='text-sm'>{data.desc}</p>
+                                    <p className='text-sm mt-1 text-gray-500'>{data.desc}</p>
                                 </div>
                                 <div className='mt-3 mb-8'>
-                                    <p>Color</p>
+                                    <p className='font-semibold text-sm'>Color</p>
                                     <div className="btn-group mt-3 flex gap-2 text-center">
                                        <button className='border px-4 py-2 text-sm'>Black</button>
                                        <button className='border px-4 py-2 text-sm'>White</button>
@@ -66,9 +63,31 @@ const ProductDetail = () => {
                                 <hr/>
                                 <BtnQuantity/>
                                 <hr/>
-                                <div className='flex'>
-                                    <p>SKU: N/A</p>
-                                    <Link className='capitalize' to={data.gender === 'WOMEN' ? '/women' : '/men'}>{data.gender}</Link>
+                                <div className='flex text-xs gap-4 mt-2 mb-7'>
+                                    <p className='text-gray-500'>SKU: N/A</p>
+                                    <p>
+                                        <span className='text-gray-500'>Category:</span>
+                                        <Link className='capitalize ml-1 hover:underline' to={data.gender === 'WOMEN' ? '/women' : '/men'}>{data.gender}</Link>
+                                    </p>    
+                                </div>
+                                <hr/>
+                                <DescriptionProduct/>
+                                <div>
+                                    <div className='relative flex items-center justify-between py-[13px] cursor-pointer'>
+                                        <p className='font-semibold text-sm'>Additional information</p>
+                                        <p className='font-semibold'><FaPlus /></p>
+                                    </div>
+                                    <div className='pb-4'>
+                                        <table class="table-auto w-full"> 
+                                            <tbody className='border'>
+                                                <tr>
+                                                    <td className='border py-2 px-4 text-sm'>Color</td>
+                                                    <td className='border py-2 px-4 text-sm'>Black, Orange, White</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <hr/>
                                 </div>   
                             </div>         
                         </div>
