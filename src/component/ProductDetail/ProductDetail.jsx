@@ -1,16 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Header from '../Header/Header';
 import allProducts from '../AllProducts/allProduct.js';
 import { FooterSection } from '../FooterSection/FooterSection.jsx';
 import ResponsiveSize from '../../../public/ResonsiveSize.jsx';
-import { BoldText } from '../../../public/HeaderText.jsx';
 import { BtnQuantity } from './BtnQuantity.jsx';
 import { DescriptionProduct } from './DescriptionProduct.jsx';
 import { FaPlus } from "react-icons/fa";
 import { ReviewProduct } from './ReviewProduct.jsx';
 import { RelatedProductMen } from './RelatedProductMen.jsx';
 import { RelatedProductWomen } from './RelatedProductWomen.jsx';
+import { IoIosSearch } from "react-icons/io";
+import ProductPopup from './ProductPopup.jsx';
 
 const ProductDetail = () => {
 
@@ -26,6 +27,8 @@ const ProductDetail = () => {
         }));
     }, [id]);
 
+    const [toggleProduct, setToggleProduct] = useState(false);
+
     return (
         <div>
             <Header/>
@@ -35,7 +38,10 @@ const ProductDetail = () => {
                         <div className='grid grid-cols-2 gap-10 max-lg:grid-cols-1'>
                             <div className=''>
                                 <div className='w-full grid grid-rows-2 gap-5'>
-                                    <img className='w-full -h-full' src={data.gallery.img1} alt="" />
+                                    <div className='relative w-full'>
+                                        <img className='w-full -h-full' src={data.gallery.img1} alt="" />
+                                        <div onClick={() => {setToggleProduct(!toggleProduct)}} className='absolute bg-white w-9 h-9 p-1 rounded-full top-5 right-5 flex items-center justify-center cursor-pointer'><IoIosSearch className='text-2xl' /></div>
+                                    </div>
                                     <div className='grid grid-cols-2 gap-5'>
                                         <div className='relative'>
                                             <img className='w-full h-full' src={data.gallery.img2} alt="" />
@@ -103,6 +109,7 @@ const ProductDetail = () => {
                                 <RelatedProductMen menProductId={data.id}/> 
                             }
                         </div>
+                        <ProductPopup product={data} toggleProduct={toggleProduct} setToggleProduct={setToggleProduct}/>
                     </div>
                     
                 ))}
