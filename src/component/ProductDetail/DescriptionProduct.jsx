@@ -15,15 +15,15 @@ export const DescriptionProduct = () => {
                 <p className='text-sm text-gray-500 my-3'>Our T-Shirts are lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                 <div className='flex flex-col'>
                     <div className='flex items-center gap-2 text-sm text-gray-500'>
-                        <RxRadiobutton />
+                        <p><RxRadiobutton/></p>
                         100% Cotton
                     </div>
                     <div className='flex items-center gap-2 text-sm text-gray-500'>
-                        <RxRadiobutton />
+                        <p><RxRadiobutton/></p>
                         260gsm
                     </div>
                     <div className='flex items-center gap-2 text-sm text-gray-500'>
-                        <RxRadiobutton />
+                        <p><RxRadiobutton/></p>
                         Breathable Fabric
                     </div>
                 </div>
@@ -33,11 +33,11 @@ export const DescriptionProduct = () => {
                 <p className='uppercase text-sm'>Size & Fit</p>
                 <div className='flex flex-col mt-3'>
                     <div className='flex items-center gap-2 text-sm text-gray-500'>
-                        <RxRadiobutton />
+                        <p><RxRadiobutton/></p>
                         Model is wearing size M and is 6'1"
                     </div>
                     <div className='flex items-center gap-2 text-sm text-gray-500'>
-                        <RxRadiobutton />
+                        <p><RxRadiobutton/></p>
                         Standard fit for a relaxed, easy feel
                     </div>
                 </div>
@@ -48,11 +48,11 @@ export const DescriptionProduct = () => {
                 <p className='text-sm text-gray-500 my-3'>Free standard delivery on orders over $60.</p>
                 <div className='flex flex-col'>
                     <div className='flex items-center gap-2 text-sm text-gray-500'>
-                        <RxRadiobutton />
-                        You can return your order for any reason, free of charge, within 30 days
+                        <p><RxRadiobutton/></p>
+                        <p>You can return your order for any reason, free of charge, within 30 days</p>
                     </div>
                     <div className='flex items-center gap-2 text-sm text-gray-500'>
-                        <RxRadiobutton />
+                        <p><RxRadiobutton/></p>
                         We also offer a Free-of-Charge shipping label
                     </div>
                 </div>
