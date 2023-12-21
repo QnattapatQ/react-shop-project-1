@@ -18,7 +18,7 @@ const allProducts = [
             img2: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-001-b.jpg',
             img3: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-01-c.jpg',
             img4: 'https://websitedemos.net/t-shirts-store-04/wp-content/uploads/sites/1115/2022/07/product-01-d.jpg',
-        }
+        },
     },
     {
         id: 't-shirt-name-2',
