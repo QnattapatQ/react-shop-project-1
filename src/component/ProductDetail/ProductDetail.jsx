@@ -29,6 +29,8 @@ const ProductDetail = () => {
 
     const [toggleProduct, setToggleProduct] = useState(false);
 
+    const [numberOfShirt, setNumberOfShirt] = useState(0);
+
     return (
         <div>
             <Header/>
@@ -39,18 +41,18 @@ const ProductDetail = () => {
                             <div className=''>
                                 <div className='w-full grid grid-rows-2 gap-5'>
                                     <div className='relative w-full'>
-                                        <img className='w-full -h-full' src={data.gallery.img1} alt="" />
+                                        <img className='w-full -h-full' src={data.gallery[0].img} alt="" />
                                         <div onClick={() => {setToggleProduct(!toggleProduct)}} className='absolute bg-white w-9 h-9 p-1 rounded-full top-5 right-5 flex items-center justify-center cursor-pointer'><IoIosSearch className='text-2xl' /></div>
                                     </div>
                                     <div className='grid grid-cols-2 gap-5'>
-                                        <div className='relative'>
-                                            <img className='w-full h-full' src={data.gallery.img2} alt="" />
+                                        <div className='relative cursor-pointer' onClick={() => {setToggleProduct(!toggleProduct), setNumberOfShirt(1)}}>
+                                            <img className='w-full h-full' src={data.gallery[1].img} alt="" />
                                         </div>
-                                        <div className='relative'>
-                                            <img className='w-full h-full' src={data.gallery.img3} alt="" />
+                                        <div className='relative cursor-pointer' onClick={() => {setToggleProduct(!toggleProduct), setNumberOfShirt(2)}}>
+                                            <img className='w-full h-full' src={data.gallery[2].img} alt="" />
                                         </div>
-                                        <div className='relative'>
-                                            <img className='w-full h-full' src={data.gallery.img4} alt="" />
+                                        <div className='relative cursor-pointer' onClick={() => {setToggleProduct(!toggleProduct), setNumberOfShirt(3)}}>
+                                            <img className='w-full h-full' src={data.gallery[3].img} alt="" />
                                         </div>
                                     </div>
                                 </div>    
@@ -109,7 +111,12 @@ const ProductDetail = () => {
                                 <RelatedProductMen menProductId={data.id}/> 
                             }
                         </div>
-                        <ProductPopup product={data} toggleProduct={toggleProduct} setToggleProduct={setToggleProduct}/>
+                        <ProductPopup 
+                            product={data} 
+                            toggleProduct={toggleProduct} 
+                            setToggleProduct={setToggleProduct} 
+                            numberOfShirt={numberOfShirt} 
+                        />
                     </div>
                     
                 ))}
