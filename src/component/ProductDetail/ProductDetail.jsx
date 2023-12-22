@@ -118,11 +118,11 @@ const ProductDetail = () => {
                             setToggleProduct={setToggleProduct} 
                             numberOfShirt={numberOfShirt} 
                         />
+                        <ProductBottomBar product={data}/>
                     </div>
                     
                 ))}
             </ResponsiveSize>
-            <ProductBottomBar/>
             <FooterSection/>
         </div>
     )
