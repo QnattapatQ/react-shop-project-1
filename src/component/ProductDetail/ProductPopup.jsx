@@ -48,10 +48,10 @@ const ProductPopup = ({ product, toggleProduct, setToggleProduct, numberOfShirt 
                     </div>
                 </div>
                 <div>
-                    <div className='absolute top-1/2 left-0 bg-green-400 p-2 bg-[rgba(0,0,0,0.6)] rounded-full duration-300 cursor-pointer hover:bg-black' onClick={() => {prevImages(), setZoomImages(false)}}>
+                    <div className='absolute top-1/2 left-0 p-2 bg-[rgba(0,0,0,0.6)] rounded-full duration-300 cursor-pointer hover:bg-black' onClick={() => {prevImages(), setZoomImages(false)}}>
                         <FaArrowLeft className='text-white' />
                     </div>
-                    <div className='absolute top-1/2 right-0 bg-blue-400 p-2 bg-[rgba(0,0,0,0.6)] rounded-full duration-300 cursor-pointer hover:bg-black' onClick={() => {nextImages(), setZoomImages(false)}}>
+                    <div className='absolute top-1/2 right-0 p-2 bg-[rgba(0,0,0,0.6)] rounded-full duration-300 cursor-pointer hover:bg-black' onClick={() => {nextImages(), setZoomImages(false)}}>
                         <FaArrowRight className='text-white'/>
                     </div>
                 </div>

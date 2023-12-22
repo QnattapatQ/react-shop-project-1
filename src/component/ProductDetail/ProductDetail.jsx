@@ -12,6 +12,7 @@ import { RelatedProductMen } from './RelatedProductMen.jsx';
 import { RelatedProductWomen } from './RelatedProductWomen.jsx';
 import { IoIosSearch } from "react-icons/io";
 import ProductPopup from './ProductPopup.jsx';
+import { ProductBottomBar } from './ProductBottomBar.jsx';
 
 const ProductDetail = () => {
 
@@ -121,6 +122,7 @@ const ProductDetail = () => {
                     
                 ))}
             </ResponsiveSize>
+            <ProductBottomBar/>
             <FooterSection/>
         </div>
     )
