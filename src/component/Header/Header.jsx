@@ -109,7 +109,6 @@ const Header = () => {
                             </div>
                             <FlexCenter className='gap-8 max-sm:gap-5'>
                                 <button><AiOutlineSearch className='text-[1.5rem] text-black' onClick={() => {setOpenSearch(!openSearch)}}/></button>
-                                <p className='text-black'>$0.00</p>
                                 <div className='relative'>
                                     <AiOutlineShoppingCart className='text-[1.5rem] cursor-pointer text-black'/>
                                     <FlexCenter className='absolute bg-black text-white w-4 h-4 rounded-full text-[12px] font-semibold top-[-8px] right-[-8px] p-2'>0</FlexCenter>

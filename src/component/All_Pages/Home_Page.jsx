@@ -8,6 +8,8 @@ import { SummerProductSection } from '../SummerProduct/SummerProductSection.jsx'
 import { CommentSection } from '../CommentSection/CommentSection.jsx'
 import { CategorySection } from '../CategorySection/CategorySection.jsx'
 import { FooterSection } from '../FooterSection/FooterSection.jsx'
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Home_Page = () => {
 

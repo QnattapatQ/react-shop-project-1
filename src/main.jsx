@@ -10,7 +10,6 @@ import Men from './component/All_Pages/Men.jsx';
 import About from './component/All_Pages/About.jsx';
 import Contact from './component/All_Pages/Contact.jsx';
 import Shop from './component/All_Pages/Shop.jsx';
-import ProductExport from './component/ProductProvider/ProductProvider.jsx';
 
 const router = createBrowserRouter([
   {
