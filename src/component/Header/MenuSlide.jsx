@@ -2,28 +2,29 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/Ai';
 import { SizeWidth } from '../../App';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 export const MenuSlide = ({ toggleOpen, setToggleOpen }) => {
 
     const menuLists = [{
         menuName: 'Buy T-Shirts',
-        href: '#',
+        href: '/shop',
         boderStyles: true,
     },{
         menuName: 'Women',
-        href: '#',
+        href: '/women',
         boderStyles: true,
     },{
         menuName: 'Men',
-        href: '#',
+        href: '/men',
         boderStyles: true,
     },{
         menuName: 'About',
-        href: '#',
+        href: '/about',
         boderStyles: true,
     },{
         menuName: 'Contact',
-        href: '#',
+        href: '/contact',
         boderStyles: false,
     },];
 
@@ -72,7 +73,7 @@ export const MenuSlide = ({ toggleOpen, setToggleOpen }) => {
                 <div className='mt-16 relative'>
                     <ul>
                         {menuLists.map((menu, index) => (
-                            <li className={`${menu.boderStyles ? 'border-t' : 'border'} p-4 cursor-pointer duration-200 hover:bg-white bg-[#faedeb] border-[rgba(224,214,213,0.48)]`} key={index}><a href={menu.href}>{menu.menuName}</a></li>
+                            <li className={`${menu.boderStyles ? 'border-t' : 'border'} p-4 cursor-pointer w-full duration-200 hover:bg-white bg-[#faedeb] border-[rgba(224,214,213,0.48)]`} key={index}><Link className='w-full block' to={menu.href}>{menu.menuName}</Link></li>
                         ))}
                     </ul>
                 </div>

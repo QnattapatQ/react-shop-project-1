@@ -7,6 +7,7 @@ import { GiHamburgerMenu } from 'react-icons/Gi';
 import { MenuSlide } from './MenuSlide';
 import { SearchSection } from './SearchSection';
 import { Link } from 'react-router-dom';
+import CartSideBar from '../CartSideBar/CartSideBar';
 
 const Header = () => {
 
@@ -28,6 +29,8 @@ const Header = () => {
     },];
 
     // const mobileResponse = useContext(MobileMenuShow);
+
+    const [openCartBar, setOpenCartBar] = useState(false); 
 
     const [toggleOpen, setToggleOpen] = useState(false);
 
@@ -122,6 +125,7 @@ const Header = () => {
                     </ResponsiveSize>
             </div>
             <MenuSlide toggleOpen={toggleOpen} setToggleOpen={setToggleOpen}/>
+            <CartSideBar/>
             <SearchSection openSearch={openSearch} setOpenSearch={setOpenSearch}/>
         </>    
     )
