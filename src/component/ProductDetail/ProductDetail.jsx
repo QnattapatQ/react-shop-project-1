@@ -74,7 +74,7 @@ const ProductDetail = () => {
                                     </div>
                                 </div>
                                 <hr/>
-                                <BtnQuantity/>
+                                <BtnQuantity product={data}/>
                                 <hr/>
                                 <div className='flex text-xs gap-4 mt-2 mb-7'>
                                     <p className='text-gray-500'>SKU: N/A</p>

@@ -1,8 +1,10 @@
 import React from 'react'
 import { FaMinus } from "react-icons/fa6";
 import { RxRadiobutton } from "react-icons/rx";
+import { useState } from 'react';
 
 export const DescriptionProduct = () => {
+
     return (
         <div className=''>
             <div className='relative flex items-center justify-between py-[13px] cursor-pointer'>

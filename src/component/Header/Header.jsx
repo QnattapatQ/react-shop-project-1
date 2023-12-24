@@ -113,8 +113,8 @@ const Header = () => {
                             <FlexCenter className='gap-8 max-sm:gap-5'>
                                 <button><AiOutlineSearch className='text-[1.5rem] text-black' onClick={() => {setOpenSearch(!openSearch)}}/></button>
                                 <div className='relative'>
-                                    <AiOutlineShoppingCart className='text-[1.5rem] cursor-pointer text-black'/>
-                                    <FlexCenter className='absolute bg-black text-white w-4 h-4 rounded-full text-[12px] font-semibold top-[-8px] right-[-8px] p-2'>0</FlexCenter>
+                                    <AiOutlineShoppingCart className='text-[1.5rem] cursor-pointer text-black' onClick={() => {setOpenCartBar(!openCartBar)}}/>
+                                    <FlexCenter className='absolute bg-black text-white w-4 h-4 rounded-full text-[12px] font-semibold top-[-8px] right-[-8px] p-2 pointer-events-none'>0</FlexCenter>
                                 </div>
                                 <div>
                                     <a className={`${mobileSize ? 'hidden' : 'block'} bg-black text-white p-2 border border-white rounded-md font-medium duration-200 hover:bg-white hover:text-black hover:border-black`} href="#">Login</a>
@@ -125,7 +125,7 @@ const Header = () => {
                     </ResponsiveSize>
             </div>
             <MenuSlide toggleOpen={toggleOpen} setToggleOpen={setToggleOpen}/>
-            <CartSideBar/>
+            <CartSideBar openCartBar={openCartBar} setOpenCartBar={setOpenCartBar}/>
             <SearchSection openSearch={openSearch} setOpenSearch={setOpenSearch}/>
         </>    
     )
