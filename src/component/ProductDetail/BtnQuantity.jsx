@@ -12,7 +12,17 @@ export const BtnQuantity = ({ product }) => {
     }
 
     useEffect(() => {
-        setSaveData(product)
+        if (saveData.length === 0){
+            setSaveData(product)
+        } // else {
+        //     saveData.forEach((data, index) => {
+        //         if(data.id === saveData[index].id) {
+        //             setSaveData([...product, {productCount: productCount + 1}])
+        //         } else {
+        //             setSaveData([...product])
+        //         }
+        //     });
+        // }
     }, [product]);
 
     useEffect(() => {
