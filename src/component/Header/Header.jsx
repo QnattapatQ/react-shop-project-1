@@ -42,6 +42,14 @@ const Header = () => {
         scrollDetail: window.scrollY
     })
 
+    const [productInCart, setProductInCart] = useState([]);
+
+    useEffect(() => {
+        let productInLocalStorage = JSON.parse(localStorage.getItem('productList')) || [];
+        console.log(productInLocalStorage)
+        setProductInCart(productInLocalStorage);
+    }, []);
+
     const resetScroll = () => {
         setScrollDetail({
             scrollDetail: window.scrollY
@@ -114,7 +122,7 @@ const Header = () => {
                                 <button><AiOutlineSearch className='text-[1.5rem] text-black' onClick={() => {setOpenSearch(!openSearch)}}/></button>
                                 <div className='relative'>
                                     <AiOutlineShoppingCart className='text-[1.5rem] cursor-pointer text-black' onClick={() => {setOpenCartBar(!openCartBar)}}/>
-                                    <FlexCenter className='absolute bg-black text-white w-4 h-4 rounded-full text-[12px] font-semibold top-[-8px] right-[-8px] p-2 pointer-events-none'>0</FlexCenter>
+                                    <FlexCenter className='absolute bg-black text-white w-4 h-4 rounded-full text-[12px] font-semibold top-[-8px] right-[-8px] p-2 pointer-events-none'>{productInCart.length}</FlexCenter>
                                 </div>
                                 <div>
                                     <a className={`${mobileSize ? 'hidden' : 'block'} bg-black text-white p-2 border border-white rounded-md font-medium duration-200 hover:bg-white hover:text-black hover:border-black`} href="#">Login</a>

@@ -8,6 +8,7 @@ const CartSideBar = ({ setOpenCartBar, openCartBar }) => {
 
     useEffect(() => {
         let productInLocalStorage = JSON.parse(localStorage.getItem('productList')) || [];
+        console.log(productInLocalStorage)
         setProductInCart(productInLocalStorage);
     }, []);
 
@@ -43,8 +44,23 @@ const CartSideBar = ({ setOpenCartBar, openCartBar }) => {
                 </div>
                 <div className='h-full'>
                     {productInCart.length !== 0 ?
-                        <div>
-                            <p>{productInCart.productName}</p>
+                        <div className='p-4'>
+                            {productInCart.map((data) => (
+                                <div className='py-2' key={data.id}>
+                                    <div className='flex items-center gap-4'>
+                                        <div className='w-[60px]'>
+                                            <img className='w-full h-full object-cover' src={data.productTeaser} alt="" />
+                                        </div>
+                                        <div className='flex-1'>
+                                            <p>{data.productName}</p>
+                                            <div className=''>
+                                                <p className='inline-block'>{data.productCount} x ${data.lowPrice * data.productCount}</p>
+                                            </div>
+                                        </div>
+                                        <AiOutlineClose className='text-lg cursor-pointer'/>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                             :
                         <div className='p-4 h-full flex items-center justify-center'>

@@ -54,8 +54,12 @@ const ProductDetail = () => {
         if(cartProduct.length === 0){
             setCartProduct([product])
         } else {
-            setCartProduct((oldProduct) => [...oldProduct, product])
+            setCartProduct(
+                cartProduct.map((data) => data.id === product.id ? {...data, productCount: data.productCount + 1} : product)
+            )
+            // setCartProduct((oldProduct) => [...oldProduct, product])
         }
+        window.location.reload(false);
     }
 
 
@@ -106,8 +110,7 @@ const ProductDetail = () => {
                                 </div>
                                 <hr/>
 
-                                
-
+                                {/*----------------- Quantity Button Start-----------------*/}
                                 <div className='flex items-center gap-5 my-4'>
                                     <div className='flex'>
                                         <button disabled={checkNumber} className='border w-10 h-10 -mr-[1px] duration-150 hover:bg-gray-100' onClick={() => {setProductQuantity(productQuantity - 1)}}>-</button>
@@ -115,13 +118,11 @@ const ProductDetail = () => {
                                         <button className='border w-10 h-10 -ml-[1px] duration-150 hover:bg-gray-100' onClick={() => {setProductQuantity(productQuantity + 1)}}>+</button>
                                     </div>
                                     <div>
-                                        <button className='bg-black text-white px-[15px] h-10 duration-150 hover:text-gray-300' onClick={() => {addToCart(data)}}>Add to Cart</button>
+                                        <button className='bg-black text-white px-[15px] h-10 duration-150 hover:text-gray-300' onClick={() => {addToCart({...data, productCount: productQuantity})}}>Add to Cart</button>
                                     </div>
                                 </div>
                                 <hr/>
-
-
-
+                                {/*-----------------Quantity Button End-----------------*/}
                                 <div className='flex text-xs gap-4 mt-2 mb-7'>
                                     <p className='text-gray-500'>SKU: N/A</p>
                                     <p>
