@@ -5,25 +5,21 @@ export const BtnQuantity = ({ product }) => {
     const [productQuantity, setProductQuantity] = useState(1);
     const [checkNumber, setCheckNumber] = useState(false);
 
-    const [saveData, setSaveData] = useState([]);
+    const [cartProduct, setCartProduct] = useState([]);
 
     const addToCart = () => {
-        localStorage.setItem('productList', JSON.stringify(saveData));
+        setCartProduct((oldProduct) => [...oldProduct, product]);
+        localStorage.setItem('productList', JSON.stringify([...cartProduct]));
     }
 
     useEffect(() => {
-        if (saveData.length === 0){
-            setSaveData(product)
-        } // else {
-        //     saveData.forEach((data, index) => {
-        //         if(data.id === saveData[index].id) {
-        //             setSaveData([...product, {productCount: productCount + 1}])
-        //         } else {
-        //             setSaveData([...product])
-        //         }
-        //     });
-        // }
+        if(cartProduct.length === 0){
+            setCartProduct([product])
+        } else {
+            setCartProduct((oldProduct) => [...oldProduct, product])
+        }
     }, [product]);
+
 
     useEffect(() => {
         if(productQuantity <= 1) {
@@ -41,7 +37,7 @@ export const BtnQuantity = ({ product }) => {
                 <button className='border w-10 h-10 -ml-[1px] duration-150 hover:bg-gray-100' onClick={() => {setProductQuantity(productQuantity + 1)}}>+</button>
             </div>
             <div>
-                <button className='bg-black text-white px-[15px] h-10 duration-150 hover:text-gray-300' onClick={() => {addToCart()}}>Add to Cart</button>
+                <button className='bg-black text-white px-[15px] h-10 duration-150 hover:text-gray-300' onClick={() => {addToCart(product)}}>Add to Cart</button>
             </div>
         </div>
     )

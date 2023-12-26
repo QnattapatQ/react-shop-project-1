@@ -32,6 +32,45 @@ const ProductDetail = () => {
 
     const [numberOfShirt, setNumberOfShirt] = useState(0);
 
+
+
+
+
+
+    const [productQuantity, setProductQuantity] = useState(1);
+    const [checkNumber, setCheckNumber] = useState(false);
+    const [cartProduct, setCartProduct] = useState([]);
+
+    useEffect(() => {
+        if(productQuantity <= 1) {
+            setCheckNumber(true)
+        } else {
+            setCheckNumber(false)
+        }
+    },[productQuantity]);
+
+
+    const addToCart = (product) => {
+        if(cartProduct.length === 0){
+            setCartProduct([product])
+        } else {
+            setCartProduct((oldProduct) => [...oldProduct, product])
+        }
+    }
+
+    useEffect(() => {
+        const storedCartProduct = JSON.parse(localStorage.getItem('productList'));
+        if (storedCartProduct) {
+          setCartProduct(storedCartProduct);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('productList', JSON.stringify([...cartProduct]));
+    }, [cartProduct]);
+
+
+
     return (
         <div>
             <Header/>
@@ -74,8 +113,23 @@ const ProductDetail = () => {
                                     </div>
                                 </div>
                                 <hr/>
-                                <BtnQuantity product={data}/>
+
+                                
+
+                                <div className='flex items-center gap-5 my-4'>
+                                    <div className='flex'>
+                                        <button disabled={checkNumber} className='border w-10 h-10 -mr-[1px] duration-150 hover:bg-gray-100' onClick={() => {setProductQuantity(productQuantity - 1)}}>-</button>
+                                        <div className='border p-2 w-10 h-10 text-center'>{productQuantity}</div>
+                                        <button className='border w-10 h-10 -ml-[1px] duration-150 hover:bg-gray-100' onClick={() => {setProductQuantity(productQuantity + 1)}}>+</button>
+                                    </div>
+                                    <div>
+                                        <button className='bg-black text-white px-[15px] h-10 duration-150 hover:text-gray-300' onClick={() => {addToCart(data)}}>Add to Cart</button>
+                                    </div>
+                                </div>
                                 <hr/>
+
+
+
                                 <div className='flex text-xs gap-4 mt-2 mb-7'>
                                     <p className='text-gray-500'>SKU: N/A</p>
                                     <p>
