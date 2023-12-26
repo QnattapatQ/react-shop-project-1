@@ -35,11 +35,11 @@ const ProductDetail = () => {
 
 
 
-
+    const storedCartProduct = JSON.parse(localStorage.getItem('productList')) || [];
 
     const [productQuantity, setProductQuantity] = useState(1);
     const [checkNumber, setCheckNumber] = useState(false);
-    const [cartProduct, setCartProduct] = useState([]);
+    const [cartProduct, setCartProduct] = useState(storedCartProduct);
 
     useEffect(() => {
         if(productQuantity <= 1) {
@@ -58,18 +58,10 @@ const ProductDetail = () => {
         }
     }
 
-    useEffect(() => {
-        const storedCartProduct = JSON.parse(localStorage.getItem('productList'));
-        if (storedCartProduct) {
-          setCartProduct(storedCartProduct);
-        }
-    }, []);
 
     useEffect(() => {
         localStorage.setItem('productList', JSON.stringify([...cartProduct]));
     }, [cartProduct]);
-
-
 
     return (
         <div>
