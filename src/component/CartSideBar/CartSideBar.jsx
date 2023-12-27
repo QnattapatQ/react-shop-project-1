@@ -47,7 +47,7 @@ const CartSideBar = ({ setOpenCartBar, openCartBar }) => {
                         <div className='p-4'>
                             {productInCart.map((data) => (
                                 <div className='py-2' key={data.id}>
-                                    <div className='flex items-center gap-4'>
+                                    <div className='flex items-center gap-4 ' key={data.id}>
                                         <div className='w-[60px]'>
                                             <img className='w-full h-full object-cover' src={data.productTeaser} alt="" />
                                         </div>

@@ -46,7 +46,6 @@ const Header = () => {
 
     useEffect(() => {
         let productInLocalStorage = JSON.parse(localStorage.getItem('productList')) || [];
-        console.log(productInLocalStorage)
         setProductInCart(productInLocalStorage);
     }, []);
 

@@ -29,14 +29,12 @@ const ProductDetail = () => {
     }, [id]);
 
     const [toggleProduct, setToggleProduct] = useState(false);
-
     const [numberOfShirt, setNumberOfShirt] = useState(0);
 
 
 
 
     const storedCartProduct = JSON.parse(localStorage.getItem('productList')) || [];
-
     const [productQuantity, setProductQuantity] = useState(1);
     const [checkNumber, setCheckNumber] = useState(false);
     const [cartProduct, setCartProduct] = useState(storedCartProduct);
@@ -54,9 +52,12 @@ const ProductDetail = () => {
         if(cartProduct.length === 0){
             setCartProduct([product])
         } else {
-            setCartProduct(
-                cartProduct.map((data) => data.id === product.id ? {...data, productCount: data.productCount + 1} : product)
-            )
+            const productCheckList = cartProduct.map((data) => data.id === product.id ? {...data, productCount: data.productCount + productQuantity} : product)
+            console.log(productCheckList)
+            setCartProduct((oldProduct) => [...oldProduct, productCheckList])
+
+            // setCartProduct((oldProduct) => [...oldProduct, cartProduct.map((data) => data.id === product.id ? {...data, productCount: data.productCount + productQuantity} : {product})])
+
             // setCartProduct((oldProduct) => [...oldProduct, product])
         }
         window.location.reload(false);
@@ -118,7 +119,7 @@ const ProductDetail = () => {
                                         <button className='border w-10 h-10 -ml-[1px] duration-150 hover:bg-gray-100' onClick={() => {setProductQuantity(productQuantity + 1)}}>+</button>
                                     </div>
                                     <div>
-                                        <button className='bg-black text-white px-[15px] h-10 duration-150 hover:text-gray-300' onClick={() => {addToCart({...data, productCount: productQuantity})}}>Add to Cart</button>
+                                        <button className='bg-black text-white px-[15px] h-10 duration-150 hover:text-gray-300' onClick={() => {addToCart({...data, productCount: data.productCount + productQuantity})}}>Add to Cart</button>
                                     </div>
                                 </div>
                                 <hr/>
