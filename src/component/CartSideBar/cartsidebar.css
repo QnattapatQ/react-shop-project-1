@@ -1,0 +1,3 @@
+.cart-side-bar::-webkit-scrollbar {
+    display: none;
+}

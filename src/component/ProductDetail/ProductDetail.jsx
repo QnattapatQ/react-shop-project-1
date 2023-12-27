@@ -31,9 +31,6 @@ const ProductDetail = () => {
     const [toggleProduct, setToggleProduct] = useState(false);
     const [numberOfShirt, setNumberOfShirt] = useState(0);
 
-
-
-
     const storedCartProduct = JSON.parse(localStorage.getItem('productList')) || [];
     const [productQuantity, setProductQuantity] = useState(1);
     const [checkNumber, setCheckNumber] = useState(false);
@@ -49,16 +46,14 @@ const ProductDetail = () => {
 
 
     const addToCart = (product) => {
-        if(cartProduct.length === 0){
-            setCartProduct([product])
+        const existingProduct = cartProduct.find((data) => data.id === product.id)
+
+        if(existingProduct){
+            const updatedCart = cartProduct.map((data) => data.id === product.id ? { ...data, productCount: data.productCount + productQuantity } : data );
+            setCartProduct(updatedCart)
         } else {
-            const productCheckList = cartProduct.map((data) => data.id === product.id ? {...data, productCount: data.productCount + productQuantity} : product)
-            console.log(productCheckList)
-            setCartProduct((oldProduct) => [...oldProduct, productCheckList])
-
-            // setCartProduct((oldProduct) => [...oldProduct, cartProduct.map((data) => data.id === product.id ? {...data, productCount: data.productCount + productQuantity} : {product})])
-
-            // setCartProduct((oldProduct) => [...oldProduct, product])
+            const newProduct = { ...product, productCount: productQuantity };
+            setCartProduct([...cartProduct, newProduct]);
         }
         window.location.reload(false);
     }
