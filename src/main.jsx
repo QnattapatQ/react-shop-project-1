@@ -10,6 +10,7 @@ import Men from './component/All_Pages/Men.jsx';
 import About from './component/All_Pages/About.jsx';
 import Contact from './component/All_Pages/Contact.jsx';
 import Shop from './component/All_Pages/Shop.jsx';
+import CheckOutProduct from './component/All_Pages/CheckOutProduct.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact/>
+  },
+  {
+    path: "/checkout",
+    element: <CheckOutProduct/>
   },
 ]);
 

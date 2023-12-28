@@ -2,6 +2,7 @@ import React from 'react'
 import { AiOutlineClose } from 'react-icons/Ai';
 import { useState, useEffect } from 'react';
 import './cartsidebar.css';
+import { Link } from 'react-router-dom';
 
 const CartSideBar = ({ setOpenCartBar, openCartBar, setProductLength }) => {
 
@@ -69,7 +70,7 @@ const CartSideBar = ({ setOpenCartBar, openCartBar, setProductLength }) => {
             <div className={`${openCartBar ? 'opacity-100 visible' : 'opacity-0 invisible'} fixed duration-500 inset-0 z-40 bg-[rgba(0,0,0,0.4)]`} onClick={() => {setOpenCartBar(!openCartBar)}}>
                 
             </div>
-            <div className={`${openCartBar ? 'translate-x-[0] opacity-100 visible' : 'translate-x-[100%] opacity-0 invisible'} z-50 fixed duration-300 right-0 top-0 bottom-0 h-full bg-white w-[380px] flex flex-col`}>
+            <div className={`${openCartBar ? 'translate-x-[0] opacity-100 visible' : 'translate-x-[100%] opacity-0 invisible'} z-50 fixed duration-300 right-0 top-0 bottom-0 h-full bg-white w-[380px] flex flex-col max-sm:w-full`}>
                 <div className='flex items-center justify-between p-4 border-b-2'>
                     <p>Shopping Cart</p>
                     <AiOutlineClose className='text-lg cursor-pointer' onClick={() => {setOpenCartBar(!openCartBar)}}/>
@@ -105,7 +106,7 @@ const CartSideBar = ({ setOpenCartBar, openCartBar, setProductLength }) => {
                         Total: $ {totalPrice}
                     </div>
                     <div className='w-full py-2'>
-                        <a className='py-2 px-4 block text-center bg-black cursor-pointer text-white' href="">Continue Shopping</a>
+                        <Link to="/checkout" className='py-2 px-4 block text-center bg-black cursor-pointer text-white'>Continue Shopping</Link>
                     </div>
                 </div>
             </div>  
