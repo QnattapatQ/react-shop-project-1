@@ -44,13 +44,6 @@ const Header = () => {
 
     const [productLength, setProductLength] = useState(null);
 
-    const [productInCart, setProductInCart] = useState([]);
-
-    useEffect(() => {
-        let productInLocalStorage = JSON.parse(localStorage.getItem('productList')) || [];
-        setProductInCart(productInLocalStorage);
-    }, []);
-
     const resetScroll = () => {
         setScrollDetail({
             scrollDetail: window.scrollY

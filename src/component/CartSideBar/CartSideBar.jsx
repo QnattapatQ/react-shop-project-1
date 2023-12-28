@@ -6,12 +6,38 @@ import './cartsidebar.css';
 const CartSideBar = ({ setOpenCartBar, openCartBar, setProductLength }) => {
 
     const [productInCart, setProductInCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
-    let productInLocalStorage = JSON.parse(localStorage.getItem('productList')) || [];
+    const productInLocalStorage = JSON.parse(localStorage.getItem('productList')) || [];
 
     useEffect(() => {
         setProductInCart(productInLocalStorage);
     }, []);
+
+    useEffect(() => {
+        setProductLength(productInCart.length)
+        localStorage.setItem('productList', JSON.stringify(productInCart));
+        calTotalPrice()
+    }, [productInCart]);
+
+    const removeProdcut = (product) => {
+        const updateCart = productInCart.filter((data) => {
+            if(data.id !== product.id) {
+                return data
+            }
+        });
+        setProductInCart(updateCart);
+        window.location.reload(false);
+    }
+
+    const calTotalPrice = () => {
+        setTotalPrice(0);
+        productInCart.forEach((data) => {
+            setTotalPrice((priceOfPrevProduct) => priceOfPrevProduct + (data.lowPrice * data.productCount))
+        });
+    }
+
+    // DeakTop Width Start
 
     const [desktopSize, setDesktopSize] = useState({
         winWidth: window.innerWidth
@@ -36,21 +62,7 @@ const CartSideBar = ({ setOpenCartBar, openCartBar, setProductLength }) => {
 
     },[desktopSize]);
 
-    const removeProdcut = (product) => {
-        const updateCart = productInCart.filter((data) => {
-            console.log('data.id ' + data.id)
-            if(data.id !== product.id) {
-                return data
-            }
-        });
-        setProductInCart(updateCart);
-    }
-
-    useEffect(() => {
-        setProductLength(productInCart.length)
-        localStorage.setItem('productList', JSON.stringify(productInCart));
-    }, [productInCart]);
-
+    // DeakTop Width End
 
     return (
         <div>
@@ -90,7 +102,7 @@ const CartSideBar = ({ setOpenCartBar, openCartBar, setProductLength }) => {
                 </div>
                 <div className='p-4'>
                     <div className='py-2'>
-                        Total: $ 0
+                        Total: $ {totalPrice}
                     </div>
                     <div className='w-full py-2'>
                         <a className='py-2 px-4 block text-center bg-black cursor-pointer text-white' href="">Continue Shopping</a>
