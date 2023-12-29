@@ -4,7 +4,6 @@ import Header from '../Header/Header';
 import allProducts from '../AllProducts/allProduct.js';
 import { FooterSection } from '../FooterSection/FooterSection.jsx';
 import ResponsiveSize from '../../../public/ResonsiveSize.jsx';
-import { BtnQuantity } from './BtnQuantity.jsx';
 import { DescriptionProduct } from './DescriptionProduct.jsx';
 import { FaPlus } from "react-icons/fa";
 import { ReviewProduct } from './ReviewProduct.jsx';
@@ -13,6 +12,7 @@ import { RelatedProductWomen } from './RelatedProductWomen.jsx';
 import { IoIosSearch } from "react-icons/io";
 import ProductPopup from './ProductPopup.jsx';
 import { ProductBottomBar } from './ProductBottomBar.jsx';
+import Swal from 'sweetalert2'
 
 const ProductDetail = () => {
 
@@ -55,7 +55,17 @@ const ProductDetail = () => {
             const newProduct = { ...product, productCount: productQuantity };
             setCartProduct([...cartProduct, newProduct]);
         }
-        window.location.reload(false);
+
+        Swal.fire({
+            title: "Successfully added to cart.",
+            text: `Added ${product.productCount} item of ${product.productName} to cart.`,
+            icon: "success",
+            timer: 1500,
+        });
+        
+        setTimeout(() => {
+            window.location.reload(false);
+        }, 1600);
     }
 
 

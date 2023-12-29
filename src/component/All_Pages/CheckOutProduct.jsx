@@ -4,23 +4,13 @@ import { FooterSection } from '../FooterSection/FooterSection'
 import ResponsiveSize from '../../../public/ResonsiveSize'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const CheckOutProduct = () => {
 
     const productInLocalStorage = JSON.parse(localStorage.getItem('productList')) || [];
 
     const [productInCart, setProductInCart] = useState([]);
-    const [productQuantity, setProductQuantity] = useState(1);
-    const [checkNumber, setCheckNumber] = useState(false);
-
-    useEffect(() => {
-        if(productQuantity <= 1) {
-            setCheckNumber(true)
-        } else {
-            setCheckNumber(false)
-        }
-    },[productQuantity]);
 
     useEffect(() => {
         setProductInCart(productInLocalStorage);
@@ -38,6 +28,10 @@ const CheckOutProduct = () => {
             const updatedQuantity = productInCart.map((data) => data.id === product.id ? { ...data, productCount: data.productCount + 1 } : data );
             setProductInCart(updatedQuantity);
         }
+
+        setTimeout(() => {
+            window.location.reload(false);
+        }, 1500);
     }
 
     const removeProductQuantity = (product) => {
@@ -46,6 +40,34 @@ const CheckOutProduct = () => {
         if(findProduct) {
             const updatedQuantity = productInCart.map((data) => data.id === product.id ? { ...data, productCount: data.productCount - 1 } : data );
             setProductInCart(updatedQuantity);
+        }
+
+        if(product.productCount < 1) {
+            const updatedQuantity = productInCart.map((data) => data.id === product.id ? { ...data, productCount: 1 } : data );
+            setProductInCart(updatedQuantity);
+            Swal.fire({
+                text: `Do you want to remove a "${product.productName}" from your cart?`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const updateCart = productInCart.filter((data) => {
+                        if(data.id !== product.id) {
+                            return data
+                        }
+                    });
+                    setProductInCart(updateCart);
+                  Swal.fire({
+                    text: `"${product.productName}" has been removed.`, 
+                    timer: 1500, 
+                    icon: "success"
+                  });
+                  setTimeout(() => {
+                    window.location.reload(false);
+                  }, 1500);
+                }
+            });
         }
     }
 
@@ -95,9 +117,8 @@ const CheckOutProduct = () => {
                                         <>
                                             <tr>
                                                 <td className='p-5 text-center' colSpan={5}>
-                                                    <div>
-                                                        <p className='mb-2'>No Product</p>
-                                                        <Link className='underline text-sm' to='/shop'>Go to Shopping</Link>
+                                                    <div className='h-full text-center'>
+                                                        <p>No Product in your Cart...</p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -105,6 +126,15 @@ const CheckOutProduct = () => {
                                     }
                                 </tbody>
                             </table>
+                            <div className='w-full p-5 border-x border-b'>
+                                <div className='flex items-stretch justify-between w-full'>
+                                    <div className='flex items-stretch'>
+                                        <input className='border rounded-full py-2.5 px-3.5 outline-none placeholder:text-sm' placeholder='Coupon Code...' type="text" />
+                                        <button className='ml-5 border bg-gray-100 uppercase py-2.5 px-3.5 rounded-full text-sm font-medium duration-300 hover:bg-gray-200'>Apply Coupon</button>
+                                    </div>
+                                    <Link className='border bg-gray-100 uppercase py-2.5 px-3.5 leading-2 rounded-full h-full text-sm font-medium duration-300 hover:bg-gray-200' to='/shop'>Go to Shopping</Link>
+                                </div>
+                            </div>
                         </div>
                         <div className='basis-[30%] border max-lg:basis-full'>
                             
