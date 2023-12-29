@@ -103,10 +103,10 @@ const CartSideBar = ({ setOpenCartBar, openCartBar, setProductLength }) => {
                 </div>
                 <div className='p-4'>
                     <div className='py-2'>
-                        Total: $ {totalPrice}
+                        Total: $ {totalPrice.toFixed(2)}
                     </div>
                     <div className='w-full py-2'>
-                        <Link to="/checkout" className='py-2 px-4 block text-center bg-black cursor-pointer text-white'>Continue Shopping</Link>
+                        <Link to="/checkout" className='py-2 px-4 block text-center bg-black cursor-pointer text-white'>Checkout your Product</Link>
                     </div>
                 </div>
             </div>  
