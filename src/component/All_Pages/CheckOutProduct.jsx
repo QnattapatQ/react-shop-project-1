@@ -11,10 +11,16 @@ const CheckOutProduct = () => {
     const productInLocalStorage = JSON.parse(localStorage.getItem('productList')) || [];
 
     const [productInCart, setProductInCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
         setProductInCart(productInLocalStorage);
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem('productList', JSON.stringify(productInCart));
+        calTotalPrice()
+    }, [productInCart]);
 
     const convertToTwoDecimal = (price, count) => {
         let isDecimal = price * count
@@ -71,6 +77,13 @@ const CheckOutProduct = () => {
         }
     }
 
+    const calTotalPrice = () => {
+        setTotalPrice(0);
+        productInCart.forEach((data) => {
+            setTotalPrice((priceOfPrevProduct) => priceOfPrevProduct + (data.lowPrice * data.productCount))
+        });
+    }
+
     useEffect(() => {
         localStorage.setItem('productList', JSON.stringify([...productInCart]));
     }, [productInCart]);
@@ -85,11 +98,11 @@ const CheckOutProduct = () => {
                             <table className="table-auto w-full border">
                                 <thead className='border-b'>
                                     <tr className='p-2'>
-                                        <th className='uppercase p-2 text-sm'>Product</th>
-                                        <th className='uppercase p-2 text-sm'></th>
-                                        <th className='uppercase p-2 text-sm'>Price</th>
-                                        <th className='uppercase p-2 text-sm'>Quantity</th>
-                                        <th className='uppercase p-2 text-sm'>Total</th>
+                                        <th className='uppercase p-4 text-sm'>Product</th>
+                                        <th className='uppercase p-4 text-sm'></th>
+                                        <th className='uppercase p-4 text-sm'>Price</th>
+                                        <th className='uppercase p-4 text-sm'>Quantity</th>
+                                        <th className='uppercase p-4 text-sm'>Total</th>
                                     </tr>
                                 </thead>
                                 <tbody className='p-4'>
@@ -136,8 +149,44 @@ const CheckOutProduct = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='basis-[30%] border max-lg:basis-full'>
-                            
+                        <div className='basis-[30%] max-lg:basis-full'>
+                            <div className='border px-10 py-6'>
+                                <p className='uppercase font-semibold text-xl'>Cart Totals</p>
+                                <div className='mt-7'>
+                                    <div className='pb-4 flex'>
+                                        <div className='basis-[30%]'>
+                                            <p className='inline-block'>Subtotals:</p>
+                                        </div>
+                                        <div className='basis-[70%]'>
+                                            <p className='inline-block'>{totalPrice.toFixed(2)}</p>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <div className='pt-4 flex'>
+                                        <div className='basis-[30%]'>
+                                            <p className='inline-block'>Shipping:</p>
+                                        </div>
+                                        <div className='basis-[70%]'>
+                                            <p className='inline-block text-gray-400 text-sm'>
+                                                There are no shipping methods available. Please double check your address, or contact us if you need any help.
+                                            </p>
+                                            <div className='mt-5 w-full'>
+                                                <p className='text-sm'>CALCULATE SHIPPING</p>
+                                                <select className="select select-bordered select-sm w-full mt-2">
+                                                    <option selected>Select your country...</option>
+                                                    <option>USA</option>
+                                                    <option>Thailand</option>
+                                                </select>
+                                                <div className='flex flex-col gap-4 mt-4'>
+                                                    <input className='border p-2 outline-none text-sm' type="text" placeholder='State / Country'/>
+                                                    <input className='border p-2 outline-none text-sm' type="text" placeholder='Postcode / Zip'/>
+                                                </div>
+                                                <button className='w-full mt-5 border bg-gray-100 uppercase py-2.5 px-3.5 rounded-full text-sm font-medium duration-300 hover:bg-gray-200'>Updata Totals</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div> 
