@@ -9,39 +9,40 @@ import PuffLoader from "react-spinners/PuffLoader";
 
 export const AllProduct = () => {
 
-    const [sortProduct, setSortProduct] = useState(allProducts);
-    const [selectValue, setSelectValue] = useState('default');
-    const [loading, setLoading] = useState(false);
+    const [sortProduct, setSortProduct] = useState(allProducts); // State สำหรับเก็บสินค้าทั้งหมด
+    const [selectValue, setSelectValue] = useState('default'); // State สำหรับเก็บค่าของการ filter สินค้าในหน้าสินค้า
+    const [loading, setLoading] = useState(false); // State สำหรับหน้า loading โดยตั้งค่าเป็น false
 
     useEffect(() => {
-        const sortData = () => {
-            if(selectValue === 'default'){
+        const sortData = () => {  // function สำหรับ filter สินค้า โดยนำรายละเอียดจากไฟล์ allProduct.js มาใช้งาน
+
+            if(selectValue === 'default'){ // -------------- เรียงสินค้าตามค่าเริ่มต้น --------------
                 setSortProduct(
                     ...allProducts.sort((a, b) => a.number - b.number)
                 );
 
-            } else if(selectValue === 'popularity' || selectValue === 'latest'){
+            } else if(selectValue === 'popularity' || selectValue === 'latest'){ // -------------- เรียงสินค้าตามตัวเลขจากน้อยไปมาก --------------
                 setSortProduct(
                     ...allProducts.sort((a, b) => b.number - a.number)
                 );
-            } else if(selectValue === 'lowtohigh'){
+            } else if(selectValue === 'lowtohigh'){ // -------------- เรียงสินค้าตามราคาจากน้อยไปมาก --------------
                 setSortProduct(
                     ...allProducts.sort((a, b) => a.lowPrice - b.lowPrice)
                 );
-            } else if(selectValue === 'hightolow'){
+            } else if(selectValue === 'hightolow'){ // -------------- เรียงสินค้าตามราคาจากนมากไปน้อย --------------
                 setSortProduct(
                     ...allProducts.sort((a, b) => b.lowPrice - a.lowPrice)
                 );
             }
         };
-        sortData();
+        sortData(); 
     },[selectValue, sortProduct, loading]);
 
-    useEffect(() => {
+    useEffect(() => { // -------------- เรียกใช้ function showLoading(); เมื่อทำการ filter สินค้า หรือ เปลี่ยนแปลงค่าของ selectValue --------------
         showLoading();
     },[selectValue]);
 
-    const showLoading = () => {
+    const showLoading = () => { // -------------- function สำหรับเพิ่มหน้า loading เมื่อ filter สินค้า --------------
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
@@ -72,11 +73,11 @@ export const AllProduct = () => {
                                 </select>
                             </div>
                         </div>
-                        {loading ? (
+                        {loading ? (        // -------------- เมื่อ loading เป็น true จะแสดงหน้า loading --------------
                             <div className='min-h-[100vh] flex items-center justify-center'>
                                 <PuffLoader color="#ffa599" />
-                            </div>
-                        ) : (
+                            </div>      
+                        ) : (               // -------------- ถ้า loading เป็น false จะแสดงหน้า สินค้าทั้งหมด --------------
                             <div className='grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-7 mb-10 mt-10'>
                             {allProducts.map((data, index) => (
                                 <div className={`${loading ? '' : 'animate-productScale'} relative overflow-hidden group/img group/option`} key={index}>

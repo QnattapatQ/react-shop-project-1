@@ -1,6 +1,4 @@
 import React from 'react'
-import ResponsiveSize from '../../../public/ResonsiveSize'
-import SmallText from '../../../public/HeaderText'
 
 const BgAttach = () => {
     return (
